@@ -1,33 +1,9 @@
 
 {
-  description = "Starter Configuration for NixOS and MacOS";
+  description = "John's Config for NixOS and MacOS";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/master";
-
-    # My nixpkgs fork includes a feather-font package (https://github.com/dustinlyons/feather-font)
-    # and a timeout setting for Emacs daemon. If you don't want to use my it, follow these steps to use the official repo instead:
-    #
-    # Change the flake input
-    # - Official repository
-    #   nixpkgs.url = "github:NixOS/nixpkgs/master";
-    # 
-    # Remove this setting and retry builds if they sometimes timeout:
-    # - NixOS configuration
-    #   https://github.com/dustinlyons/nixos-config/blob/8114714c10d61cd5da34df842dd5bac0301f688a/nixos/default.nix#L280
-    #
-    # Replace feather-font with another font:
-    # - Rofi:
-    #   https://github.com/dustinlyons/nixos-config/blob/1290219734b53b26d9c20d13989846788462ff26/nixos/config/rofi/launcher.rasi#L42
-    # 
-    # - Polybar:
-    #   https://github.com/dustinlyons/nixos-config/blob/1290219734b53b26d9c20d13989846788462ff26/nixos/home-manager.nix#L21
-    #   https://github.com/dustinlyons/nixos-config/blob/1290219734b53b26d9c20d13989846788462ff26/nixos/config/rofi/styles.rasi#L49
-    #   https://github.com/dustinlyons/nixos-config/blob/1290219734b53b26d9c20d13989846788462ff26/nixos/config/rofi/powermenu.rasi#L49
-    #   https://github.com/dustinlyons/nixos-config/blob/1290219734b53b26d9c20d13989846788462ff26/nixos/config/rofi/networkmenu.rasi#L49
-    # 
-    # - Fonts:
-    #   https://github.com/dustinlyons/nixos-config/blob/1290219734b53b26d9c20d13989846788462ff26/nixos/default.nix#L286
 
     home-manager.url = "github:nix-community/home-manager";
     darwin = {
@@ -53,8 +29,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    kickstart-nix-nvim.url = "github:dp138504/kickstart-nix.nvim";
   };
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, disko } @inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, diskoi, kickstart-nix-nvim } @inputs:
     let
       user = "johnathanbenge";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
