@@ -31,8 +31,8 @@ with pkgs; [
   # docker marked broken as of Nov 15, 2023
   # https://github.com/NixOS/nixpkgs/issues/267685
   #
-  # docker
-  # docker-compose
+  docker
+  docker-compose
   #
   awscli2
   flyctl
@@ -49,12 +49,6 @@ with pkgs; [
   noto-fonts
   noto-fonts-emoji
   meslo-lgs-nf
-
-  # Node.js development tools
-  nodePackages.nodemon
-  nodePackages.prettier
-  nodePackages.npm # globally install npm
-  nodejs
 
   # Text and terminal utilities
   htop
