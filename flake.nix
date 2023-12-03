@@ -32,7 +32,7 @@
 
     kickstart-nix-nvim.url = "github:dp138504/kickstart-nix.nvim";
   };
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, diskoi, kickstart-nix-nvim, ... } @inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, disko, kickstart-nix-nvim } @inputs:
     let
       user = "johnathanbenge";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
