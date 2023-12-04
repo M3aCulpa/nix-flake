@@ -15,14 +15,4 @@
   "appcleaner"
   "syncthing"
 
-  # Entertainment Tools
-  "steam"
-  "vlc"
-
-  # Productivity Tools
-  "raycast"
-  "asana"
-
-  # Browsers
-
 ]

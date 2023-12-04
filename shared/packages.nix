@@ -36,7 +36,9 @@ with pkgs; [
   libfido2
   pinentry
   yubikey-manager
+  _1password-gui
 
+  # idk
   docker
   docker-compose
   awscli2
@@ -54,6 +56,8 @@ with pkgs; [
   noto-fonts
   noto-fonts-emoji
   meslo-lgs-nf
+  spotify
+
 
   # Text and terminal utilities
   htop
