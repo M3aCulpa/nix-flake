@@ -6,7 +6,7 @@
       inputs.home-manager.darwinModules.home-manager
     ];
 
-  users.users.bepperson = {
+  users.users.johnathanbenge = {
     name = "johnathanbenge";
     home = "/Users/johnathanbenge";
   };
