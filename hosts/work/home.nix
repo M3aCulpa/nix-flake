@@ -41,6 +41,9 @@
       qemu
       ripgrep
       terraform
+      nodejs_20
+      sops
+      yarn
       trivy
       vscode
       wget
