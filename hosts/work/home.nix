@@ -53,7 +53,6 @@
       pinentry
       yubikey-agent
       yubikey-manager
-      yubikey-manager-qt
       _1password-gui
 
       # Media-related packages
