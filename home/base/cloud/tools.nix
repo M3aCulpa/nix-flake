@@ -9,7 +9,7 @@
     awscli
     eksctl
 
-    # iac 
+    # iac
     terragrunt
     terraform
     ansible

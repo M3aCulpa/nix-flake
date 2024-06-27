@@ -4,7 +4,6 @@
   outputs = inputs: import ./outputs inputs;
 
   inputs = {
-
     # official nix package source & unstable distro
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -17,7 +16,7 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    # choose what files and directories to keep between reboots 
+    # choose what files and directories to keep between reboots
     impermanence.url = "github:nix-community/impermanence";
 
     # generate iso/qcow2/docker =/ ... image from nix config

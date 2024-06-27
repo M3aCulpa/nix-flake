@@ -1,4 +1,8 @@
-{congif, pkgs, ...}: {
+{
+  congif,
+  pkgs,
+  ...
+}: {
   programs = {
     neovim = {
       enable = true;
