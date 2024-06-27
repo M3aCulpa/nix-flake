@@ -1,4 +1,11 @@
-{pkgs-unstable, ...}: let
+{pkgs, ...}: let
+
+    shellAliases = {
+        vim = "nvim";
+        cat = "bat";
+        ls = "exa";
+        grep = "rg";
+    };
 
     sessionPath = [
         "$HOME/.local/bin"
@@ -7,7 +14,16 @@
 
 in {
     home.sessionPath = sessionPath;
+
+    fonts.fonts = with pkgs; [
+        (nerdfonts.override {fonts = ["Iosevka"];})
+    ];
     
+    programs.bash = {
+        enable = true;
+        enableCompletion = true;
+    };
+
     programs.zsh = {
         enable = true;
         enableCompletion = true;
@@ -29,7 +45,7 @@ in {
                 "kubectl"
                 "rsync"
             ];
-            theme = "sorin";
+            theme = "gallois";
         };
     };
 }

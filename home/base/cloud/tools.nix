@@ -19,7 +19,7 @@
     kubernetes
     kustomize
     istoctl
-    argocd
+    fluxcd
 
     # virtualization
     vagrant

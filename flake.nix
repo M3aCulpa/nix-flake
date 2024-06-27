@@ -45,20 +45,20 @@
     };
 
     # private repo with my secrets
-    mysecrets = {
-      url = "git+ssh://git@github.com/m3aculpa/nix-secrets.git?shallow=1";
-      flake = false;
-    };
+    # mysecrets = {
+    #   url = "git+ssh://git@github.com/m3aculpa/nix-secrets.git?shallow=1";
+    #   flake = false;
+    # };
 
     # my wallpapers
-    wallpapers = {
-      url = "github:m3aculpa/wallpapers";
-      flake = false;
-    };
+    # wallpapers = {
+    #   url = "github:m3aculpa/wallpapers";
+    #   flake = false;
+    # };
 
-    # my nix user repository
-    nix-user = {
-      url = "github:m3aculpa/nix-user";
-    };
+    # # my nix user repository
+    # nix-user = {
+    #   url = "github:m3aculpa/nix-user";
+    # };
   };
 }
