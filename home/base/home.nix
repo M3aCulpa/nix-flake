@@ -1,6 +1,6 @@
-{myvars, ...}: {
+{
   home = {
-    inherit (myvars) username;
+    username = "johnathanbenge";
   };
 
   programs.home-manager.enable = true;

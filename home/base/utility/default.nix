@@ -1,3 +1,7 @@
-{mylib, ...}: {
-  imports = mylib.scanPaths ./.;
+{config, pkgs, ...}:
+{
+  imports = [
+    ./tmux
+    ./tools.nix
+  ];
 }

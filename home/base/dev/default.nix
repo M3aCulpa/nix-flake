@@ -1,3 +1,6 @@
-{mylib, ...}: {
-  imports = mylib.scanPaths ./.;
+{
+  imports = [
+    ./tools.nix
+    ./git.nix
+  ];
 }

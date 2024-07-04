@@ -1,11 +1,9 @@
 {
-  lib,
   pkgs,
   ...
 }: {
   home.packages = with pkgs; [
     # aws
-    aws-iam-authenticator
     awscli
     eksctl
 
@@ -22,7 +20,6 @@
     fluxcd
 
     # virtualization
-    vagrant
     docker
   ];
 }
