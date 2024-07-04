@@ -1,14 +1,12 @@
 {
-  description = "JohnnyB's nix config for NixOS and macOS";
+  description = "JohnnyB's nix config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     darwin = {
       url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
@@ -16,57 +14,38 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-darwin, darwin, home-manager, nixos-hardware, agenix, flake-utils, ... }:
-    flake-utils.lib.eachSystem ["x86_64-linux" "aarch64-linux" "aarch64-darwin"] (system:
+  outputs = { self, nixpkgs, darwin, home-manager, agenix, ... }:
       let
-        pkgs = import nixpkgs { inherit system; };
+        pkgsDarwin = import darwin { system = "aarch64-darwin"; };
 
         commonConfig = {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             enable = true;
-            homeDirectory = if system == "aarch64-darwin" then
-              "/Users/johnathanbenge"
-            else
-              "/home/johnathanbenge";
+            homeDirectory = "/Users/johnathanbenge";
             username = "johnathanbenge";
           };
         };
 
-        nixosConfig = {
-          imports = [
-            agenix.nixosModules.agenix
-            nixos-hardware.nixosModules.generic
-            home-manager.nixosModules.home-manager
-          ];
-
-          boot.loader.systemd-boot.enable = true;
-          boot.loader.efi.canTouchEfiVariables = true;
-        };
-
         darwinConfig = {
           imports = [
-            darwin.modules.darwin
             home-manager.darwinModules.home-manager
           ];
           system.configurationRevision = self.rev or self.dirtyRev or null;
           services.nix-daemon.enable = true;
-          nixpkgs.hostPlatform = system;
+          nixpkgs.hostPlatform = "aarch64-darwin";
         };
       in {
         darwinConfigurations = {
           mbp = darwin.lib.darwinSystem {
-            inherit system;
+            system = "aarch64-darwin";
             modules = [
               darwinConfig
               commonConfig
@@ -74,16 +53,5 @@
             ];
           };
         };
-
-        nixosConfigurations = {
-          myNixosSystem = pkgs.lib.nixosSystem {
-            inherit system;
-            modules = [
-              nixosConfig
-              commonConfig
-              ./home/nixos
-            ];
-          };
-        };
-      });
+    };
 }

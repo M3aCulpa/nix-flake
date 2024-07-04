@@ -1,7 +1,7 @@
-{config, pkgs, ...}:
 {
   imports = [
     ./tmux
     ./tools.nix
+    ./terminal.nix
   ];
 }
