@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
 {
-  home.homeDirectory = "/Users/johnathanbenge";
-  imports =
-    [ 
-      ../base
-    ];
+  imports = [
+    ../base
+    ./cloud
+    ./editors
+  ];
 }

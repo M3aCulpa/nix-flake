@@ -20,38 +20,39 @@
     };
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, agenix, ... }:
-      let
-        pkgsDarwin = import darwin { system = "aarch64-darwin"; };
+  outputs = {
+    self,
+    darwin,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
 
-        commonConfig = {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            enable = true;
-            homeDirectory = "/Users/johnathanbenge";
-            username = "johnathanbenge";
-          };
-        };
-
-        darwinConfig = {
-          imports = [
-            home-manager.darwinModules.home-manager
-          ];
-          system.configurationRevision = self.rev or self.dirtyRev or null;
-          services.nix-daemon.enable = true;
-          nixpkgs.hostPlatform = "aarch64-darwin";
-        };
-      in {
-        darwinConfigurations = {
-          mbp = darwin.lib.darwinSystem {
-            system = "aarch64-darwin";
-            modules = [
-              darwinConfig
-              commonConfig
-              ./home/darwin
-            ];
-          };
-        };
+    darwinConfig = {
+      system.configurationRevision = self.rev or self.dirtyRev or null;
+      nixpkgs.hostPlatform = "aarch64-darwin";
+      services.nix-daemon.enable = true;
     };
+
+  in {
+    darwinConfigurations = {
+      mbp = darwin.lib.darwinSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          darwinConfig
+          ./hosts/mbp-work
+          ./modules
+          inputs.home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              extraSpecialArgs = {inherit inputs outputs;};
+              users = {
+                "johnathanbenge" = import ./home/darwin;
+              };
+            };
+          }
+        ];
+      };
+    };
+  };
 }
