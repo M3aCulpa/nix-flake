@@ -26,16 +26,14 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-darwin, darwin, home-manager, nixos-hardware, agenix, flake-utils, ... }:
-    flake-utils.lib.eachSystem ["x86_64-linux" "aarch64-linux" "aarch64-darwin"] (system:
+    flake-utils.lib.eachSystem ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"] (system:
       let
         pkgs = import nixpkgs { inherit system; };
 
         commonConfig = {
           home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
             enable = true;
-            homeDirectory = if system == "aarch64-darwin" then
+            homeDirectory = if system == "aarch64-darwin" || system == "x86_64-darwin" then
               "/Users/johnathanbenge"
             else
               "/home/johnathanbenge";
@@ -50,6 +48,7 @@
             home-manager.nixosModules.home-manager
           ];
 
+          # Additional NixOS-specific configurations can be added here
           boot.loader.systemd-boot.enable = true;
           boot.loader.efi.canTouchEfiVariables = true;
         };
@@ -64,24 +63,24 @@
           nixpkgs.hostPlatform = system;
         };
       in {
-        darwinConfigurations = {
-          mbp = darwin.lib.darwinSystem {
-            inherit system;
-            modules = [
-              darwinConfig
-              commonConfig
-              ./home/darwin
-            ];
-          };
-        };
-
         nixosConfigurations = {
           myNixosSystem = pkgs.lib.nixosSystem {
             inherit system;
             modules = [
               nixosConfig
               commonConfig
-              ./home/nixos
+              ./home/nixos  # Your custom NixOS-specific configurations
+            ];
+          };
+        };
+
+        darwinConfigurations = {
+          mbp = darwin.lib.darwinSystem {
+            inherit system;
+            modules = [
+              darwinConfig
+              commonConfig
+              ./home/darwin  # Your custom macOS-specific configurations
             ];
           };
         };

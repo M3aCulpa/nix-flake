@@ -1,12 +1,7 @@
 {
-  mylib,
-  myvars,
-  ...
-}: {
-  home.homeDirectory = "/Users/${myvars.username}";
+  home.homeDirectory = "/Users/johnathanbenge";
   imports =
-    (mylib.scanPaths ./.)
-    ++ [
+    [ 
       ../base
     ];
 }
