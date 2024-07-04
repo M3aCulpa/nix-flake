@@ -1,6 +1,6 @@
 {
   imports = [
-    ../base
+    ../core
     ./cloud
     ./editors
   ];

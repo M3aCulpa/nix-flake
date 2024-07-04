@@ -27,9 +27,15 @@
     casks = [
       "docker"
       "discord"
-      "iterm2"
       "slack"
       "spotify"
+      "notion"
+      "ykman"
+      "yubico-authenticator"
+      "zoom"
+      "unity-hub"
+      "blender"
+      "1password"
     ];
   };
 

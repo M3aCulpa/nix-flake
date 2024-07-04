@@ -13,10 +13,6 @@
 in {
   home.sessionPath = sessionPath;
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["Iosevka"];})
-  ];
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;

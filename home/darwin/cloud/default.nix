@@ -16,10 +16,8 @@
     kubernetes-helm
     kubernetes
     kustomize
-    istoctl
+    istioctl
     fluxcd
 
-    # virtualization
-    docker
   ];
 }
