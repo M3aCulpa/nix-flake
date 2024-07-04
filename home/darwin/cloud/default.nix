@@ -14,7 +14,7 @@
 
     # orchestration
     kubernetes-helm
-    kubernetes
+    kubectl
     kustomize
     istioctl
     fluxcd

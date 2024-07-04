@@ -35,7 +35,6 @@
       "zoom"
       "unity-hub"
       "blender"
-      "1password"
     ];
   };
 
