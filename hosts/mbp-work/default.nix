@@ -24,18 +24,18 @@
     };
     onActivation.cleanup = "zap";
 
-    casks = [
-      "docker"
-      "discord"
-      "slack"
-      "spotify"
-      "notion"
-      "ykman"
-      "yubico-authenticator"
-      "zoom"
-      "unity-hub"
-      "blender"
-    ];
+    # casks = [
+    #   "docker"
+    #   "discord"
+    #   "slack"
+    #   "spotify"
+    #   "notion"
+    #   "ykman"
+    #   "yubico-authenticator"
+    #   "zoom"
+    #   "unity-hub"
+    #   "blender"
+    # ];
   };
 
   # Auto upgrade nix package and the daemon service.

@@ -9,6 +9,7 @@
     tmux
     wget
     tree
+    gh
     jq
     yq
   ];
