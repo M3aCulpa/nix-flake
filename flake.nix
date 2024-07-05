@@ -18,6 +18,8 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
   outputs = {
@@ -41,18 +43,13 @@
         modules = [
           darwinConfig
           ./hosts/mbp-work
-          ./modules
           inputs.home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              extraSpecialArgs = {inherit inputs outputs;};
-              users = {
-                "johnathanbenge" = import ./home/darwin;
-              };
-            };
-          }
+          inputs.nix-homebrew.darwinModules.nix-homebrew
         ];
       };
     };
+
+    # Expose the package set, including overlays, for convenience.
+    darwinPackages = self.darwinConfigurations."simple".pkgs;
   };
 }
