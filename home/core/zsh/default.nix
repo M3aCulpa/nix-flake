@@ -6,8 +6,6 @@
     oh-my-zsh = {
       enable = true;
       plugins = [
-        "ansible"
-        "argocd"
         "autoenv"
         "colorize"
         "colored-man-pages"
@@ -20,7 +18,7 @@
         "kubectl"
         "rsync"
       ];
-      theme = "gallois";
+      theme = "sorin";
     };
   };
 }

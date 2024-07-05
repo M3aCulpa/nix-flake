@@ -27,7 +27,6 @@
     casks = [
       "docker"
       "discord"
-      "iterm2"
       "slack"
       "spotify"
     ];
