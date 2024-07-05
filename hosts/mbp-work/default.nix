@@ -1,50 +1,22 @@
-{pkgs, ...}: {
-  users.users.johnathanbenge = {
+let
+  johnathanbenge = {
     name = "johnathanbenge";
     home = "/Users/johnathanbenge";
   };
+in {
+  imports = [
+    ./configuration.nix
 
-  nixpkgs.hostPlatform = "aarch64-darwin";
-
-  # Fonts
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["Iosevka"];})
+    ../../settings/darwin
   ];
 
-  # System Packages
-  environment.systemPackages = with pkgs; [
-    kind
-  ];
-
-  # Homebrew programs
-  homebrew = {
+  darwinSettings = {
     enable = true;
-    global = {
-      autoUpdate = true;
-    };
-    onActivation.cleanup = "zap";
-
-    # casks = [
-    #   "docker"
-    #   "discord"
-    #   "slack"
-    #   "spotify"
-    #   "notion"
-    #   "ykman"
-    #   "yubico-authenticator"
-    #   "zoom"
-    #   "unity-hub"
-    #   "blender"
-    # ];
+    user = johnathanbenge;
   };
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
-
-  # Create /etc/zshrc that loads the nix-darwin environment.
-  programs.zsh.enable = true;
-
-  # Used for backwards compatibility, please read the changelog before changing.
-  # $ darwin-rebuild changelog
-  system.stateVersion = 4;
+  home-manager.users = {
+    "${johnathanbenge.name}" = import ../../home/darwin;
+  };
 }
+
