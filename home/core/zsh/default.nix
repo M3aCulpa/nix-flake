@@ -1,11 +1,4 @@
-{...}: let
-  sessionPath = [
-    "$HOME/.local/bin"
-    "$HOME/go/bin"
-  ];
-in {
-  home.sessionPath = sessionPath;
-
+{...}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
