@@ -1,11 +1,4 @@
-{pkgs, ...}: let
-  shellAliases = {
-    vim = "nvim";
-    cat = "bat";
-    ls = "exa";
-    grep = "rg";
-  };
-
+{...}: let
   sessionPath = [
     "$HOME/.local/bin"
     "$HOME/go/bin"
