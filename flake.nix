@@ -29,19 +29,11 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-
-    darwinConfig = {
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-      nixpkgs.hostPlatform = "aarch64-darwin";
-      services.nix-daemon.enable = true;
-    };
-
   in {
     darwinConfigurations = {
       mbp = darwin.lib.darwinSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          darwinConfig
           ./hosts/mbp-work
           inputs.home-manager.darwinModules.home-manager
           inputs.nix-homebrew.darwinModules.nix-homebrew
