@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     flameshot
-    openssh
     ripgrep
     gnumake
     gnutar
@@ -39,17 +38,17 @@
     };
 
     tmux = {
-    enable = true;
-    shell = "${pkgs.zsh}/bin/zsh";
-    shortcut = "a";
-    baseIndex = 1;
-    escapeTime = 1;
+      enable = true;
+      shell = "${pkgs.zsh}/bin/zsh";
+      shortcut = "a";
+      baseIndex = 1;
+      escapeTime = 1;
 
-    plugins = with pkgs; [
-      tmuxPlugins.yank
-    ];
+      plugins = with pkgs; [
+        tmuxPlugins.yank
+      ];
 
-    extraConfig = builtins.readFile ./tmux.conf;
+      extraConfig = builtins.readFile ./tmux.conf;
     };
   };
 }
