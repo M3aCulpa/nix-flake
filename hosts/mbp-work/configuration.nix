@@ -24,9 +24,6 @@
   };
 
   services = {
-    dnsmasq = {
-      enable = true;
-    };
     nix-daemon = {
       enable = true;
     };
