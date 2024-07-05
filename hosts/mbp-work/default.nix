@@ -6,7 +6,6 @@ let
 in {
   imports = [
     ./configuration.nix
-
     ../../settings/darwin
   ];
 
@@ -19,4 +18,3 @@ in {
     "${johnathanbenge.name}" = import ../../home/darwin;
   };
 }
-

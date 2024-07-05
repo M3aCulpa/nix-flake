@@ -3,5 +3,7 @@
     ../core
     ./cloud
     ./editors
+    ./dev
+    ./alacritty
   ];
 }
