@@ -6,7 +6,6 @@
     oh-my-zsh = {
       enable = true;
       plugins = [
-        "autoenv"
         "colorize"
         "colored-man-pages"
         "cp"

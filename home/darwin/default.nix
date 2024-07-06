@@ -5,7 +5,5 @@
     ./cloud
     ./dev
     ./editors
-    ./dev
-    ./alacritty
   ];
 }
