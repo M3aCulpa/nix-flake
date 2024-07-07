@@ -10,6 +10,7 @@
   homebrew = {
    casks = [
      "docker"
+     "alacritty"
      "discord"
      "slack"
      "spotify"
