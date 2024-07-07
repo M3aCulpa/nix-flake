@@ -33,7 +33,7 @@
       mbp = darwin.lib.darwinSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./hosts/mbp-work
+          ./hosts/mbp
           inputs.home-manager.darwinModules.home-manager
           inputs.nix-homebrew.darwinModules.nix-homebrew
         ];

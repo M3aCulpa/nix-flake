@@ -7,7 +7,7 @@
     enable = true;
     lfs.enable = true;
 
-    userName = "Johnathan Benge";
+    userName = "m3aculpa";
     userEmail = "johnathanbenge@gmail.com";
 
     includes = [

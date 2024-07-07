@@ -7,20 +7,20 @@
     qemu
   ];
 
-  #homebrew = {
-  #  # casks = [
-  #  #   "docker"
-  #  #   "discord"
-  #  #   "slack"
-  #  #   "spotify"
-  #  #   "notion"
-  #  #   "ykman"
-  #  #   "yubico-authenticator"
-  #  #   "zoom"
-  #  #   "unity-hub"
-  #  #   "blender"
-  #  # ];
-  #};
+  homebrew = {
+   casks = [
+     "docker"
+     "discord"
+     "slack"
+     "spotify"
+     "notion"
+     "ykman"
+     "yubico-authenticator"
+     "zoom"
+     "unity-hub"
+     "blender"
+   ];
+  };
 
   services = {
     nix-daemon = {
