@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ../../modules/home/alacritty
+    ../../../modules/home/alacritty
   ];
 
   programs.alacritty = {
