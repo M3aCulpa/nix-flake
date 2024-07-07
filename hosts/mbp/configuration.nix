@@ -14,7 +14,6 @@
      "slack"
      "spotify"
      "notion"
-     "ykman"
      "yubico-authenticator"
      "zoom"
      "unity-hub"
