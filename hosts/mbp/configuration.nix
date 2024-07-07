@@ -19,7 +19,6 @@
      "zoom"
      "unity-hub"
      "blender"
-     "yubico-yubikey-manager"
    ];
   };
 
