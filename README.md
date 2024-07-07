@@ -15,4 +15,5 @@ The structure of this repository is as follows:
 - `hosts/`: 
 - `modules/`: 
 - `overlays/`:
-- `secrets/`: 
+- `secrets/`:
+- `settings/`: 
