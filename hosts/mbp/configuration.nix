@@ -11,6 +11,7 @@
    casks = [
      "docker"
      "alacritty"
+     "bitwarden"
      "discord"
      "slack"
      "spotify"
