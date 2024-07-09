@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     nodePackages.pnpm
     nodejs_22
+    bitwarden-cli
     cmake
     gnumake
     gcc
