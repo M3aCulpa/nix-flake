@@ -1,7 +1,10 @@
 # nix-flake
 
-My Nix configuration!
+This is a Nix flake-based setup that (currently) manages macOS (via nix-darwin), Homebrew integration, and Home Manager modules. The repo uses a modular approach to configure various environments and tools efficiently across devices.
 
-## Overview
+## key directories
 
-This repository contains my Nix configuration files, which I use to manage my development environment. It includes a set of declarative specifications for the packages, configurations, and services that I use.
+- home/: Contains Home Manager configurations for different environments such as shells, editors, and terminal emulators.
+- hosts/: Per-device configurations (e.g., MacBook Pro, desktop, etc.).
+- modules/: Reusable Nix modules for applications and tools.
+- settings/: System-specific settings for macOS and NixOS, including fonts, Homebrew integration, and user configurations.
